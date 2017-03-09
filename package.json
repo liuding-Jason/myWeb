@@ -1,0 +1,31 @@
+{
+  "name": "demo",
+  "version": "0.0.1",
+  "description": "vue-demo ",
+  "main": "index.js",
+  "author": "liuding",
+  "license": "ISC",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --host 192.168.1.198 --port 3000 ",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "predeploy": "npm run build",
+    "deploy": "surge --project . --domain vue-2-simple-routing-example.surge.sh"
+  },
+  "dependencies": {
+    "vue": "^2.0.0-beta.1",
+    "vue-resource": "^1.2.0",
+    "vue-router": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "cross-env": "^1.0.6",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.4",
+    "surge": "^0.18.0",
+    "vue-loader": "^9.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}

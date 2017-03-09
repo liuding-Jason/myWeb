@@ -1,2 +1,2 @@
 # myWeb
-A personal Web Home 
+A personal Web Home of me 
