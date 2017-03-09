@@ -2,13 +2,96 @@
 /*
 * set dpr
 */
-module.exports = {
 
+class Dpr {
+	constructor(opt){
+		this.perFS	 		= 12;
+		this.dpr 			= window.devicePixelRatio ;
+		this.dprArr			= [1 , 2 , 3] ;
+		this.is_android 	= false ;
+		this.is_ios 		= false ;
+		this.is_winPhone	= false ;
+		this.is_pc			= false ;
+		this.init() ; 
+	}
+
+	init(){
+		this.getUserAgent() ;
+		this.isDpr() ;
+	}
+	// judge user app version
+	getUserAgent (){
+		let appV = window.navigator.appVersion ;
+		if(appV.toUpperCase().indexOf("IPHONE") != -1){
+			this.is_ios = true
+			return ;
+		}
+		if(appV.toUpperCase().indexOf("ANDROID") != -1){
+			this.is_android = true ;
+			return ;
+		}
+		if(appV.toUpperCase().indexOf("WINDOWS PHONE") != -1){
+			this.is_winPhone = true ;
+			return ;
+		}
+		if(appV.toUpperCase().indexOf("WINDOWS") != -1){
+			this.is_pc = true ;
+			return ;
+		}
+	} 
+	// judge dpr  
+	isDpr(){
+		if(this.dprArr.indexOf(this.dpr) != -1){
+			this.dprArr.push(this.dpr) ;
+		} 
+	}
+	// get opt
+	get (key){
+		let t ;
+		key && this.hasOwnProperty(key) ? t = this.key : t = null ;
+		return t ;
+	}
+}
+
+
+module.exports = class SetDpr extends Dpr{
+
+	constructor(props){
+		super(props);
+	}
+
+	set (){
+		let html = document.getElementsByTagName('html')[0] ;
+		if(this.dpr * 1 !== 1){
+			console.log(parseInt( this.perFS * this.dpr ));
+			html.setAttribute("data-dpr" , this.dpr);
+			html.style.fontSize = parseInt( this.perFS * this.dpr ) + "px" ;
+			return ;
+		}
+		let fs = 1 ;
+		this.dprArr.map((item , index) => {
+			fs *= item ;
+		});
+		html.setAttribute("data-dpr" , this.dpr);
+		html.style.fontSize = parseInt( this.perFS * fs ) + "px" ;
+	}
+}
+
+
+/*
+module.exports = {
+	ftSize : 72 ,
+	dpr : [1 , 2 , 3] ,
 	is_android : false ,
 	is_ios : false ,
 	is_winPhone : false ,
 	is_pc : false ,
+	init : function (){
 
+	} ,
+	isInDpr : function(){
+
+	}
 	getUserAgent : function(){
 		let appV = window.navigator.appVersion ;
 		if(appV.toUpperCase().indexOf("IPHONE") != -1){
@@ -57,4 +140,4 @@ module.exports = {
         	html.style.fontSize = '78px' ;
         }
 	}
-}
+}*/

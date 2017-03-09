@@ -58,7 +58,7 @@
 .title {
 	text-align : center ;
 	opacity : 1 ;
-	font-size : .5rem ;
+	font-size : .8rem ;
 }
 .title:hover {
 	color : #2c3e50 ;

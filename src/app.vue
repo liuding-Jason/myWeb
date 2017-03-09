@@ -10,6 +10,7 @@
 <script>
 
 const SetDpr = require("./util/dpr.js") ; 
+let sd = new SetDpr() ;
 
 export default {
   name: 'app',
@@ -18,13 +19,13 @@ export default {
   methods : {
     _onResize : function(){
       window.addEventListener("resize" , () => {
-        SetDpr.set() ;
+        sd.set() ;
       });
     }
   } ,
   mounted(){
     this._onResize() ;
-    SetDpr.set() ;
+    sd.set() ;
   }
 }
 </script>
@@ -42,16 +43,13 @@ body{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: white;
   height : auto ;
-  width : 80% ;
-  max-width : 768px ;
+  width : 95% ;
+  max-width : 1024px ;
   margin:0 auto ;
   border-radius : 15px ;
   overflow : hidden ;
   position : relative ;
-  left : 50% ;
   top : 50% ;
-  margin-top : -50% ;
-  margin-left : -50% ;
 }
 
 @keyframes myfirst
