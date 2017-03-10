@@ -21,8 +21,7 @@ export default {
       bgList : [
         require("./img/bg1.png") ,
         require("./img/bg2.png") ,
-        require("./img/bg3.png") ,
-        require("./img/bg4.png") 
+        require("./img/bg3.png") 
       ]
     }
   } ,
