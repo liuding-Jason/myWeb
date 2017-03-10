@@ -16,6 +16,16 @@ let sd = new SetDpr() ;
 
 export default {
   name: 'app',
+  data (){
+    return {
+      bgList : [
+        require("./img/bg1.png") ,
+        require("./img/bg2.png") ,
+        require("./img/bg3.png") ,
+        require("./img/bg4.png") 
+      ]
+    }
+  } ,
   components: {
     ldMusic
   } ,
@@ -24,11 +34,24 @@ export default {
       window.addEventListener("resize" , () => {
         sd.set() ;
       });
+    } ,
+    changeBackground : function(){
+      let l = this.bgList.length ;
+      let temp = 0 ;
+      let t = setInterval(() => {
+        ++temp >= l ? temp = 0 : "" ;
+        let bg = this.bgList[temp] ;
+        document.body.style.background = `url(${bg}) no-repeat`;
+        document.body.style.backgroundAttachment = "fixed" ;
+        document.body.style.backgroundPosition = "50% 50%" ;
+        document.body.style.backgroundSize = "cover" ;
+      } , 10000);
     }
   } ,
   mounted(){
     this._onResize() ;
     sd.set() ;
+    this.changeBackground() ;
   }
 }
 </script>
@@ -41,7 +64,7 @@ html{
 
 body{
   background-color: #f3f3d3;
-  background : url(./img/bg.png) no-repeat ;
+  background : url(./img/bg1.png) no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
   background-size : cover ;
