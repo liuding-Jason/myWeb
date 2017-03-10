@@ -92,6 +92,7 @@ body{
   position: absolute;
   left: 50%;
   top: 50%;
+  padding:5px 0 ;
 
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);

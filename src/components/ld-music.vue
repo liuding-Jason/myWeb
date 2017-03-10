@@ -72,8 +72,8 @@
 <style scoped>
 .mod-music {
 	position : absolute ;
-	height : .6rem ;
-	width : .6rem ;
+	height : .65rem ;
+	width : .65rem ;
 	top : 10px;
 	right : 15px ;
 	background : url(../img/music.png) no-repeat ;
