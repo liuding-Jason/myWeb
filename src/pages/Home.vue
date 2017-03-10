@@ -1,5 +1,13 @@
 <template>
-	<h1 class="title">{{title}}</h1>
+	<div>
+		<h1 class="mod-title">{{title}}</h1>
+		<ul class="mod-index">
+			<li v-for="link in linkArr">
+				<a :href="link['url']" target="_blank">{{link['content']}}</a>
+				<span class="mod-img-con"><img :src="link['src']"/></span>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -9,7 +17,19 @@
 	export default {
 		data () {
 			return {
-				title : "Liuding Web Page" 
+				title 	: "Liuding Web Page" ,
+				linkArr : [
+					{
+						content : "Zhihu" ,
+						url : "https://www.zhihu.com/people/liu-ding-jasonchen" ,
+						src : require("../img/zhihu.png")
+					} ,
+					{
+						content : "Github" ,
+						url : "https://github.com/liuding-Jason" ,
+						src : require("../img/github.png")
+					} ,
+				]
 			}
 		} ,
 		methods : {
@@ -55,12 +75,55 @@
 </script>
 
 <style>
-.title {
+.mod-title {
 	text-align : center ;
-	opacity : 1 ;
 	font-size : .8rem ;
+	margin-bottom : 5px;
 }
-.title:hover {
+.mod-title:hover {
 	color : #2c3e50 ;
 }
+
+.mod-index {
+	width : 100% ;
+	overflow : hidden ;
+	list-style : none ;
+	text-align : center ;
+}
+
+.mod-index li {
+	margin-bottom : 5px ;
+	border-radius : 15px ;
+}
+
+.mod-index li:hover{
+	 background-color: rgba(155,155,155,0.3) ;
+}
+
+.mod-index li:active {
+	background-color: rgba(155,155,155,0.3) ;
+}
+.mod-index li a {
+	color :  white ;
+	text-decoration : none ;
+	font-size : .7rem ;
+}
+
+.mod-index .mod-img-con {
+	display : inline-block ;
+	height : .5rem ;
+	width : .5rem ;
+}
+
+.mod-index .mod-img-con img {
+	width : 100% ;
+}
+
+.mod-index li:hover a {
+	color : #2c3e50 ;
+}
+.mod-index li a:hover {
+	text-decoration : underline ;
+}
+
 </style>

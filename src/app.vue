@@ -32,24 +32,70 @@ export default {
 
 <style>
 html{
-  background : url(./img/bg3.png) no-repeat ;
+  height : 100% ;
+  width : 100%;
+}
+
+body{
+  background-color: #f3f3d3;
+  background : url(./img/bg.png) no-repeat ;
+  background-attachment: fixed;
+  background-position: 50% 50%;
   background-size : cover ;
   height : 100% ;
   width : 100%;
-  position : relative ;
+  
+  -webkit-transition: All 2s ease;
+  -moz-transition: All 2s ease;
+  -o-transition: All 2s ease;
+  -ms-transition: All 2s ease;
+  transition: All 2s ease;
 }
-body{
+
+#app{
+
   background-color: rgba(255,255,255,0.3) ;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: white;
   height : auto ;
   width : 95% ;
   max-width : 1024px ;
-  margin:0 auto ;
   border-radius : 15px ;
   overflow : hidden ;
-  position : relative ;
-  top : 50% ;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: height 1s ease;
+  transition: top 1s ease;
+
+}
+
+id{
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: flex;         /* 新版本语法: Opera 12.1, Firefox 22+ */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+
+  justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  
+  align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
 }
 
 @keyframes myfirst
@@ -90,13 +136,6 @@ body{
   to {
     height : 50% ;
   }
-}
-
-#app{
-  animation: myfirst .5s linear 2s  alternate ;
-  -moz-animation: myfirst .5s linear 2s  alternate; /* Firefox */
-  -webkit-animation: myfirst .5s linear 2s  alternate;  /* Safari 和 Chrome */
-  -o-animation: myfirst .5s linear 2s  alternate;
 }
 
 .path-fade-enter-active, .path-fade-leave-active {
