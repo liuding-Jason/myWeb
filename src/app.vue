@@ -71,7 +71,6 @@ body{
   width : 100%;
   position : relative ;
 
-  
   -webkit-transition: All 2s ease;
   -moz-transition: All 2s ease;
   -o-transition: All 2s ease;
@@ -99,8 +98,6 @@ body{
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  transition: height 1s ease;
-  transition: top 1s ease;
 
 }
 
