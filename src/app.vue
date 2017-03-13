@@ -72,9 +72,9 @@ body{
   position : relative ;
 
   -webkit-transition: All 2s ease;
-  -moz-transition: All 2s ease;
   -o-transition: All 2s ease;
   -ms-transition: All 2s ease;
+  -moz-transition: All 2s ease;
   transition: All 2s ease;
 }
 
