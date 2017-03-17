@@ -13,6 +13,7 @@
 import ldMusic from "./components/ld-music.vue" ;
 const SetDpr = require("./util/dpr.js") ; 
 let sd = new SetDpr() ;
+let t = 0 ;
 
 export default {
   name: 'app',
@@ -37,20 +38,22 @@ export default {
     changeBackground : function(){
       let l = this.bgList.length ;
       let temp = 0 ;
-      let t = setInterval(() => {
+      t = setInterval(() => {
         ++temp >= l ? temp = 0 : "" ;
         let bg = this.bgList[temp] ;
-        document.body.style.background = `url(${bg}) no-repeat`;
-        document.body.style.backgroundAttachment = "fixed" ;
-        document.body.style.backgroundPosition = "50% 50%" ;
-        document.body.style.backgroundSize = "cover" ;
+        document.body.style.background = `#f3f3d3 url(${bg}) 50% 50%/cover no-repeat fixed`;
       } , 10000);
+
     }
   } ,
   mounted(){
     this._onResize() ;
     sd.set() ;
     this.changeBackground() ;
+  } ,
+  // 当组件摧毁时，解除相关事件
+  beforeDestroy(){
+    clearInterval(t);
   }
 }
 </script>
@@ -62,11 +65,7 @@ html{
 }
 
 body{
-  background-color: #f3f3d3;
-  background : url(./img/bg1.png) no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-size : cover ;
+  background : #f3f3d3 url(./img/bg1.png) 50% 50%/cover no-repeat fixed;
   height : 100% ;
   width : 100%;
   position : relative ;
