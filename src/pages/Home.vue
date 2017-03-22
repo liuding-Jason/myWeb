@@ -79,6 +79,8 @@
 	text-align : center ;
 	font-size : .8rem ;
 	margin-bottom : 5px;
+	height: 1rem ;
+	line-height: 1rem ;
 }
 .mod-title:hover {
 	color : #2c3e50 ;
@@ -97,16 +99,18 @@
 }
 
 .mod-index li:hover{
-	 background-color: rgba(155,155,155,0.3) ;
+	 background-color: rgba(200, 200, 200, 0.3) ;
 }
 
 .mod-index li:active {
-	background-color: rgba(155,155,155,0.3) ;
+	background-color: rgba(200, 200, 200, 0.3) ;
 }
 .mod-index li a {
 	color :  white ;
 	text-decoration : none ;
 	font-size : .7rem ;
+	height: .9rem ;
+	line-height: .9rem;
 }
 
 .mod-index .mod-img-con {
